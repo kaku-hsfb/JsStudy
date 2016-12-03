@@ -1,0 +1,1962 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Training</title>
+    <!--<link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">-->
+    <!--<script src="/bootstrap/js/bootstrap.min.js"></script>-->
+    <link href="http://libs.baidu.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
+    <script src="http://libs.baidu.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+
+    <style>
+        h4 {
+            margin: 40px 0 10px;
+        }
+
+        .nav-tabs {
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="page-header">
+        <h1>Training
+            <small>API</small>
+        </h1>
+    </div>
+
+    <ul id="myTab1" class="nav nav-tabs">
+        <li class="active"><a href="#home" data-toggle="tab">Message</a></li>
+        <li class="dropdown">
+            <a href="#" id="myTabDrop1" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+               aria-expanded="false">用户管理 <b class="caret"></b></a>
+            <ul class="dropdown-menu" aria-labelledby="myTabDrop2">
+                <li><a href="#dropdown1-1" data-toggle="tab">login</a></li>
+                <li><a href="#dropdown1-2" data-toggle="tab">绑定JPUSH API</a></li>
+                <li><a href="#dropdown1-3" data-toggle="tab">获取人员一览API</a></li>
+                <li><a href="#dropdown1-4" data-toggle="tab">获取邮箱后缀API</a></li>
+                <hr style="height:1px;border:none;border-top:1px dashed #0066CC;margin: 3px"/>
+                <li><a href="#dropdown1-5" data-toggle="tab">是否签到API</a></li>
+            </ul>
+        </li>
+        <li class="dropdown">
+            <a href="#" id="myTabDrop2" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+               aria-expanded="false">PUSH <b class="caret"></b></a>
+            <ul class="dropdown-menu" aria-labelledby="myTabDrop2">
+                <li><a href="#dropdown2-1" data-toggle="tab">PUSH</a></li>
+                <li><a href="#dropdown2-2" data-toggle="tab">获取通知一览 API</a></li>
+            </ul>
+        </li>
+        <li class="dropdown">
+            <a href="#" id="myTabDrop3" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+               aria-expanded="false">聊天 <b class="caret"></b></a>
+            <ul class="dropdown-menu" aria-labelledby="myTabDrop2">
+                <li><a href="#dropdown3-1" data-toggle="tab">创建群聊APi</a></li>
+                <li><a href="#dropdown3-2" data-toggle="tab">群一览信息取得 API</a></li>
+            </ul>
+        </li>
+        <li class="dropdown">
+            <a href="#" id="myTabDrop4" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+               aria-expanded="false">签到APP用 <b class="caret"></b></a>
+            <ul class="dropdown-menu" aria-labelledby="myTabDrop2">
+                <li><a href="#dropdown4-1" data-toggle="tab">签到APi</a></li>
+            </ul>
+        </li>
+        <li class="dropdown">
+            <a href="#" id="myTabDrop6" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+               aria-expanded="false">精彩瞬间 <b class="caret"></b></a>
+            <ul class="dropdown-menu" aria-labelledby="myTabDrop2">
+                <li><a href="#dropdown6-1" data-toggle="tab">精彩瞬间和长春介绍列表(废弃)</a></li>
+                <li><a href="#dropdown6-2" data-toggle="tab">精彩瞬间和长春介绍详情(废弃)</a></li>
+                <li><a href="#dropdown6-3" data-toggle="tab">追加数据</a></li>
+                <li><a href="#dropdown6-4" data-toggle="tab">获取精彩瞬间和长春介绍</a></li>
+                <hr style="height:1px;border:none;border-top:1px dashed #0066CC;margin: 3px"/>
+                <li><a href="#dropdown6-5" data-toggle="tab">我要去</a></li>
+                <li><a href="#dropdown6-6" data-toggle="tab">我要去追加数据</a></li>
+            </ul>
+        </li>
+        <li class="dropdown">
+            <a href="#" id="myTabDrop5" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+               aria-expanded="false">后台画面调用 <b class="caret"></b></a>
+            <ul class="dropdown-menu" aria-labelledby="myTabDrop2">
+                <li><a href="#dropdown5-1" data-toggle="tab">Schedule查询API</a></li>
+                <li><a href="#dropdown5-2" data-toggle="tab">Schedule追加/更新</a></li>
+                <li><a href="#dropdown5-3" data-toggle="tab">Schedule删除</a></li>
+                <hr style="height:1px;border:none;border-top:1px dashed #0066CC; margin: 3px"/>
+                <li><a href="#dropdown5-13" data-toggle="tab">人员信息一览查看API</a></li>
+                <li><a href="#dropdown5-4" data-toggle="tab">人员信息修改API</a></li>
+                <li><a href="#dropdown5-5" data-toggle="tab">人员信息删除</a></li>
+                <hr style="height:1px;border:none;border-top:1px dashed #0066CC;margin: 3px"/>
+                <li><a href="#dropdown5-6" data-toggle="tab">信息导入</a></li>
+                <li><a href="#dropdown5-7" data-toggle="tab">照片上传后后台更新API</a></li>
+                <hr style="height:1px;border:none;border-top:1px dashed #0066CC;margin: 3px"/>
+                <li><a href="#dropdown5-8" data-toggle="tab">Adminlogin</a></li>
+                <hr style="height:1px;border:none;border-top:1px dashed #0066CC;margin: 3px"/>
+                <li><a href="#dropdown5-9" data-toggle="tab">初始化环境</a></li>
+                <li><a href="#dropdown5-10" data-toggle="tab">重置个人信息</a></li>
+                <hr style="height:1px;border:none;border-top:1px dashed #0066CC;margin: 3px"/>
+                <li><a href="#dropdown5-11" data-toggle="tab">oss授权</a></li>
+                <hr style="height:1px;border:none;border-top:1px dashed #0066CC;margin: 3px"/>
+                <li><a href="#dropdown5-12" data-toggle="tab">文件上传</a></li>
+            </ul>
+        </li>
+        <input type="button" class="btn btn-default" value="精彩瞬间" data-toggle="modal" data-target="#myModal"/>
+    </ul>
+    <div id="myTabContent1" class="tab-content">
+
+        <div class="tab-pane active" id="home">
+            <p class="text-danger">Msg_common_001:'Msg_common_001',//参数不完整</p>
+
+            <p class="text-danger">Msg_common_002:'Msg_common_002',//请先登录后再操作</p>
+
+            <p class="text-danger">Msg_chat_001:'Msg_chat_001',//暂无聊天群组</p>
+
+            <p class="text-danger">Msg_chat_002:'Msg_chat_002',//推送失败</p>
+
+            <p class="text-danger">Msg_user_001:'Msg_user_001',//邮箱或密码不能为空！</p>
+
+            <p class="text-danger">Msg_user_002:'Msg_user_002',//尚未初始化环境</p>
+
+            <p class="text-danger">Msg_user_003:'Msg_user_003',//不存在该用户</p>
+
+            <p class="text-danger">Msg_user_004:'Msg_user_004',//用户名或密码不正确</p>
+
+            <p class="text-danger">Msg_user_005:'Msg_user_005',//用户ID不能为空</p>
+
+            <p class="text-danger">Msg_user_006:'Msg_user_006',//'该账号不存在或者没有权限！'</p>
+
+            <p class="text-danger">Msg_user_007:'Msg_user_007',//'用户已签到,请不要重复签到！'</p>
+
+            <p class="text-danger">Msg_user_008:'Msg_user_008',//'无邮箱后缀'</p>
+        </div>
+        <!-===================================================================-->
+        <!- 登录API-------------------------------->
+        <!-===================================================================-->
+        <div class="tab-pane fade" id="dropdown1-1">
+            <li>URL : ./api/v1/user/login</li>
+            <li>Method : POST</li>
+            <li>Param :
+                <ol>1.mailAddress -----邮箱</ol>
+                <ol>2.password -----登录口令</ol>
+                <ol>3.jplatform -----jPush platform（android,ios）</ol>
+                <ol>4.jPushID -----jPush regestionID</ol>
+            </li>
+            <li>Return 实例:
+                <ol>
+                    <table class="table table-striped list-row inform-list">
+                        <tr>
+                            <th>response status
+                            </th>
+                            <th>Json
+                            </th>
+                        </tr>
+                        <tr>
+                            <td>200
+                            </td>
+                            <td><br>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>上记以外
+                            </td>
+                            <td>服务器异常
+                            </td>
+                        </tr>
+                    </table>
+                </ol>
+
+            </li>
+            <li>实例测试 :
+                <ol>
+                    <form action="./api/v1/user/login" method="POST">
+                        <input class="form-control " type="text" name="mailAddress" placeholder="mailAddress"><br>
+                        <input class="form-control " type="text" name="password" placeholder="password"><br>
+                        <input class="form-control " type="text" name="jplatform" placeholder="jplatform"><br>
+                        <input class="form-control " type="text" name="jPushID" placeholder="jPushID"><br>
+                        <input type="submit" class="btn btn-primary" value="login"/>
+                        <br/>
+                    </form>
+                </ol>
+            </li>
+            <hr>
+            <br/>
+        </div>
+
+        <!-===================================================================-->
+        <!- 绑定JPUSH API-------------------------------->
+        <!-===================================================================-->
+        <div class="tab-pane fade" id="dropdown1-2">
+            <li>URL : ./api/v1/user/bindJpush</li>
+            <li>Method : POST</li>
+            <li>Param :
+                <ol>1.userID -----userID</ol>
+                <ol>2.jplatform -----jPush platform（android,ios）</ol>
+                <ol>3.jPushID -----jPush regestionID</ol>
+                <ol>4.accessToken -----accessToken</ol>
+            </li>
+            <li>Return 实例:
+                <ol>
+                    <table class="table table-striped list-row inform-list">
+                        <tr>
+                            <th>response status
+                            </th>
+                            <th>Json
+                            </th>
+                        </tr>
+                        <tr>
+                            <td>200
+                            </td>
+                            <td><br>
+                                <br>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>上记以外
+                            </td>
+                            <td>服务器异常
+                            </td>
+                        </tr>
+                    </table>
+                </ol>
+
+            </li>
+            <li>实例测试 :
+                <ol>
+                    <form action="./api/v1/user/bindJpush" method="POST">
+
+                        <input class="form-control " type="text" name="userID" placeholder="userID"><br>
+                        <input class="form-control " type="text" name="jplatform" placeholder="jplatform"><br>
+                        <input class="form-control " type="text" name="jPushID" placeholder="jPushID"><br>
+                        <input class="form-control " type="text" name="accessToken" placeholder="accessToken"><br>
+
+                        <input type="submit" class="btn btn-primary" value="绑定"/>
+                        <br/>
+                    </form>
+                </ol>
+            </li>
+            <hr>
+            <br/>
+        </div>
+        <!-===================================================================-->
+        <!- 获取人员一览API-------------------------------->
+        <!-===================================================================-->
+        <div class="tab-pane fade" id="dropdown1-3">
+            <li>URL : ./api/v1/user/getUsers</li>
+            <li>Method : GET</li>
+            <li>Param :
+                <ol>1.accessToken -----accessToken</ol>
+                <ol>2.ver -----版本号</ol>
+            </li>
+            <li>Return 实例:
+                <ol>
+                    <table class="table table-striped list-row inform-list">
+                        <tr>
+                            <th>response status
+                            </th>
+                            <th>Json
+                            </th>
+                        </tr>
+                        <tr>
+                            <td>200
+                            </td>
+                            <td><br>
+                                <br>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>上记以外
+                            </td>
+                            <td>服务器异常
+                            </td>
+                        </tr>
+                    </table>
+                </ol>
+
+            </li>
+            <li>实例测试 :
+                <ol>
+                    <form action="./api/v1/user/getUsers" method="GET">
+                        <input class="form-control " type="text" name="accessToken" placeholder="accessToken"><br>
+                        <input class="form-control " type="text" name="ver" placeholder="ver"><br>
+                        <input type="submit" class="btn btn-primary" value="获取员工列表"/>
+                        <br/>
+                    </form>
+                </ol>
+            </li>
+            <hr>
+            <br/>
+        </div>
+        <!-===================================================================-->
+        <!- 获取邮箱后缀API-------------------------------->
+        <!-===================================================================-->
+        <div class="tab-pane fade" id="dropdown1-4">
+            <li>URL : ./api/v1/user/getMailLast</li>
+            <li>Method : GET</li>
+            <li>Param :
+                <ol>1.accessToken -----accessToken</ol>
+                <ol>2.ver -----版本号</ol>
+            </li>
+            <li>Return 实例:
+                <ol>
+                    <table class="table table-striped list-row inform-list">
+                        <tr>
+                            <th>response status
+                            </th>
+                            <th>Json
+                            </th>
+                        </tr>
+                        <tr>
+                            <td>200
+                            </td>
+                            <td><br>
+                                <br>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>上记以外
+                            </td>
+                            <td>服务器异常
+                            </td>
+                        </tr>
+                    </table>
+                </ol>
+
+            </li>
+            <li>实例测试 :
+                <ol>
+                    <form action="./api/v1/user/getMailLast" method="GET">
+                        <input type="submit" class="btn btn-primary" value="获取邮箱后缀"/>
+                        <br/>
+                    </form>
+                </ol>
+            </li>
+            <hr>
+            <br/>
+        </div>
+        <!-===================================================================-->
+        <!- 是否签到API-------------------------------->
+        <!-===================================================================-->
+        <div class="tab-pane fade" id="dropdown1-5">
+            <li>URL : ./api/v1/user/isSignOrNot</li>
+            <li>Method : GET</li>
+            <li>Param :
+                <ol>1.accessToken -----accessToken</ol>
+                <ol>2.ver -----版本号</ol>
+            </li>
+            <li>Return 实例:
+                <ol>
+                    <table class="table table-striped list-row inform-list">
+                        <tr>
+                            <th>response status
+                            </th>
+                            <th>Json
+                            </th>
+                        </tr>
+                        <tr>
+                            <td>200
+                            </td>
+                            <td><br>
+                                <br>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>上记以外
+                            </td>
+                            <td>服务器异常
+                            </td>
+                        </tr>
+                    </table>
+                </ol>
+
+            </li>
+            <li>实例测试 :
+                <ol>
+                    <form action="./api/v1/user/isSignOrNot" method="GET">
+                        <input class="form-control " type="text" name="accessToken" placeholder="accessToken"><br>
+                        <input type="submit" class="btn btn-primary" value="是否签到"/>
+                        <br/>
+                    </form>
+                </ol>
+            </li>
+            <hr>
+            <br/>
+        </div>
+        <!-===================================================================-->
+        <!- PUSH API-------------------------------->
+        <!-===================================================================-->
+        <div class="tab-pane fade" id="dropdown2-1">
+            <li>URL : ./api/v1/user/pushMsg</li>
+            <li>Method : POST</li>
+            <li>Param :
+                <ol>1.userID -----userID</ol>
+                <ol>2.pushType -----pushType</ol>
+                <ol>3.title -----title</ol>
+                <ol>4.content -----content</ol>
+                <ol>5.accessToken -----accessToken</ol>
+            </li>
+            <li>Return 实例:
+                <ol>
+                    <table class="table table-striped list-row inform-list">
+                        <tr>
+                            <th>response status
+                            </th>
+                            <th>Json
+                            </th>
+                        </tr>
+                        <tr>
+                            <td>200
+                            </td>
+                            <td><br>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>上记以外
+                            </td>
+                            <td>服务器异常
+                            </td>
+                        </tr>
+                    </table>
+                </ol>
+
+            </li>
+            <li>实例测试 :
+                <ol>
+                    <form action="./api/v1/user/pushMsg" method="POST">
+                        <input class="form-control " type="text" name="userID" placeholder="userID"><br>
+                        <input class="form-control " type="text" name="pushType" placeholder="pushType"><br>
+                        <input class="form-control " type="text" name="title" placeholder="title"><br>
+                        <input class="form-control " type="text" name="content" placeholder="content"><br>
+                        <input class="form-control " type="text" name="accessToken" placeholder="accessToken"><br>
+                        <input type="submit" class="btn btn-primary" value="pushMsg"/>
+                        <br/>
+                    </form>
+                </ol>
+            </li>
+            <hr>
+            <br/>
+        </div>
+        <!-===================================================================-->
+        <!- 获取通知一览 API-------------------------------->
+        <!-===================================================================-->
+        <div class="tab-pane fade" id="dropdown2-2">
+            <li>URL : ./api/v1/user/getMsgs</li>
+            <li>Method : POST</li>
+            <li>Param :
+                <ol>1.userID -----userID</ol>
+
+                <ol>2.accessToken -----accessToken</ol>
+            </li>
+            <li>Return 实例:
+                <ol>
+                    <table class="table table-striped list-row inform-list">
+                        <tr>
+                            <th>response status
+                            </th>
+                            <th>Json
+                            </th>
+                        </tr>
+                        <tr>
+                            <td>200
+                            </td>
+                            <td><br>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>上记以外
+                            </td>
+                            <td>服务器异常
+                            </td>
+                        </tr>
+                    </table>
+                </ol>
+
+            </li>
+            <li>实例测试 :
+                <ol>
+                    <form action="./api/v1/user/getMsgs" method="get">
+                        <input class="form-control " type="text" name="userID" placeholder="userID"><br>
+                        <input class="form-control " type="text" name="accessToken" placeholder="accessToken"><br>
+                        <input type="submit" class="btn btn-primary" value="getMsg"/>
+                        <br/>
+                    </form>
+                </ol>
+            </li>
+            <hr>
+            <br/>
+        </div>
+        <!-===================================================================-->
+        <!- 创建群聊APi-------------------------------->
+        <!-===================================================================-->
+        <div class="tab-pane fade" id="dropdown3-1">
+            <li>URL : ./api/v1/chat/createGroup</li>
+            <li>Method : POST</li>
+            <li>Param :
+                <ol>1.userID -----userID</ol>
+
+                <ol>2.accessToken -----accessToken</ol>
+            </li>
+            <li>Return 实例:
+                <ol>
+                    <table class="table table-striped list-row inform-list">
+                        <tr>
+                            <th>response status
+                            </th>
+                            <th>Json
+                            </th>
+                        </tr>
+                        <tr>
+                            <td>200
+                            </td>
+                            <td><br>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>上记以外
+                            </td>
+                            <td>服务器异常
+                            </td>
+                        </tr>
+                    </table>
+                </ol>
+
+            </li>
+            <li>实例测试 :
+                <ol>
+                    <form action="./api/v1/chat/createGroup" method="post">
+                        <input class="form-control " type="text" name="groupName" placeholder="groupName"><br>
+                        <input class="form-control " type="text" name="groupID" placeholder="groupID"><br>
+                        <input class="form-control " type="text" name="data" placeholder="data"><br>
+                        <input class="form-control " type="text" name="ImgUrl" placeholder="ImgUrl"><br>
+                        <input class="form-control " type="text" name="accessToken" placeholder="accessToken"><br>
+                        <input type="submit" class="btn btn-primary" value="创建"/>
+                        <br/>
+                    </form>
+                </ol>
+            </li>
+            <hr>
+            <br/>
+        </div>
+        <!-===================================================================-->
+        <!- 群一览信息取得API-------------------------------->
+        <!-===================================================================-->
+        <div class="tab-pane fade" id="dropdown3-2">
+            <li>URL : ./api/v1/chat/chatGroupList</li>
+            <li>Method : GET</li>
+            <li>Param :
+                <ol>1.accessToken -----accessToken</ol>
+            </li>
+            <li>Return 实例:
+                <ol>
+                    <table class="table table-striped list-row inform-list">
+                        <tr>
+                            <th>response status
+                            </th>
+                            <th>Json
+                            </th>
+                        </tr>
+                        <tr>
+                            <td>200
+                            </td>
+                            <td><br>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>上记以外
+                            </td>
+                            <td>服务器异常
+                            </td>
+                        </tr>
+                    </table>
+                </ol>
+
+            </li>
+            <li>实例测试 :
+                <ol>
+                    <form action="./api/v1/chat/chatGroupList" method="get">
+                        <input class="form-control " type="text" name="accessToken" placeholder="accessToken"><br>
+                        <input type="submit" class="btn btn-primary" value="getMsg"/>
+                        <br/>
+                    </form>
+                </ol>
+            </li>
+            <hr>
+            <br/>
+        </div>
+        <!-===================================================================-->
+        <!- 签到API-------------------------------->
+        <!-===================================================================-->
+        <div class="tab-pane fade" id="dropdown4-1">
+            <li>URL : ./api/v1/sign</li>
+            <li>Method : POST</li>
+            <li>Param :
+                <ol>1.userID -----userID</ol>
+            </li>
+            <li>Return 实例:
+                <ol>
+                    <table class="table table-striped list-row inform-list">
+                        <tr>
+                            <th>response status
+                            </th>
+                            <th>Json
+                            </th>
+                        </tr>
+                        <tr>
+                            <td>200
+                            </td>
+                            <td><br>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>上记以外
+                            </td>
+                            <td>服务器异常
+                            </td>
+                        </tr>
+                    </table>
+                </ol>
+
+            </li>
+            <li>实例测试 :
+                <ol>
+                    <form action="./api/v1/sign" method="POST">
+                        <input class="form-control " type="text" name="signCode" placeholder="signCode"><br>
+                        <input type="submit" class="btn btn-primary" value="签到"/>
+                        <br/>
+                    </form>
+                </ol>
+            </li>
+            <hr>
+            <br/>
+        </div>
+
+        <!-===================================================================-->
+        <!- Schedule查询API-------------------------------->
+        <!-===================================================================-->
+        <div class="tab-pane fade" id="dropdown5-1">
+            <li>URL : ./api/v1/admin/getCurrentSchedule</li>
+            <li>Method : GET</li>
+            <li>Param :
+                <ol>1.accessToken -----accessToken</ol>
+            </li>
+            <li>Return 实例:
+                <ol>
+                    <table class="table table-striped list-row inform-list">
+                        <tr>
+                            <th>response status
+                            </th>
+                            <th>Json
+                            </th>
+                        </tr>
+                        <tr>
+                            <td>200
+                            </td>
+                            <td><br>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>上记以外
+                            </td>
+                            <td>服务器异常
+                            </td>
+                        </tr>
+                    </table>
+                </ol>
+
+            </li>
+            <li>实例测试 :
+                <ol>
+                    <form action="./api/v1/admin/getCurrentSchedule" method="get">
+                        <input class="form-control " type="text" name="accessToken" placeholder="accessToken"><br>
+                        <input type="submit" class="btn btn-primary" value="查询"/>
+                        <br/>
+                    </form>
+                </ol>
+            </li>
+            <hr>
+            <br/>
+        </div>
+        <!-===================================================================-->
+        <!- Schedule追加/更新-------------------------------->
+        <!-===================================================================-->
+        <div class="tab-pane fade" id="dropdown5-2">
+            <li>URL : ./api/v1/admin/UpdateSchedule</li>
+            <li>Method : POST</li>
+            <li>Param :
+                <ol>1.accessToken -----accessToken</ol>
+            </li>
+            <li>Return 实例:
+                <ol>
+                    <table class="table table-striped list-row inform-list">
+                        <tr>
+                            <th>response status
+                            </th>
+                            <th>Json
+                            </th>
+                        </tr>
+                        <tr>
+                            <td>200
+                            </td>
+                            <td><br>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>上记以外
+                            </td>
+                            <td>服务器异常
+                            </td>
+                        </tr>
+                    </table>
+                </ol>
+
+            </li>
+            <li>实例测试 :
+                <ol>
+                    <form action="./api/v1/admin/UpdateSchedule" method="post">
+                        //index, ScheduleDate,content_ch,content_en,content_jp,place_ch,place_en ,place_jp,color,time
+                        <input class="form-control " type="text" name="index" placeholder="index"><br>
+                        <input class="form-control " type="text" name="ScheduleDate" placeholder="ScheduleDate"><br>
+                        <input class="form-control " type="text" name="content_ch" placeholder="content_ch"><br>
+                        <input class="form-control " type="text" name="content_en" placeholder="content_en"><br>
+                        <input class="form-control " type="text" name="content_jp" placeholder="content_jp"><br>
+                        <input class="form-control " type="text" name="place_ch" placeholder="place_ch"><br>
+                        <input class="form-control " type="text" name="place_en" placeholder="place_en"><br>
+                        <input class="form-control " type="text" name="place_jp" placeholder="place_jp"><br>
+                        <input class="form-control " type="text" name="color" placeholder="color"><br>
+                        <input class="form-control " type="text" name="time" placeholder="time"><br>
+                        <input type="submit" class="btn btn-primary" value="更新"/>
+                        <br/>
+                    </form>
+                </ol>
+            </li>
+            <hr>
+            <br/>
+        </div>
+        <!-===================================================================-->
+        <!- Schedule删除-------------------------------->
+        <!-===================================================================-->
+        <div class="tab-pane fade" id="dropdown5-3">
+            <li>URL : ./api/v1/admin/deleteSchedule</li>
+            <li>Method : POST</li>
+            <li>Param :
+                <ol>1.accessToken -----accessToken</ol>
+            </li>
+            <li>Return 实例:
+                <ol>
+                    <table class="table table-striped list-row inform-list">
+                        <tr>
+                            <th>response status
+                            </th>
+                            <th>Json
+                            </th>
+                        </tr>
+                        <tr>
+                            <td>200
+                            </td>
+                            <td><br>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>上记以外
+                            </td>
+                            <td>服务器异常
+                            </td>
+                        </tr>
+                    </table>
+                </ol>
+
+            </li>
+            <li>实例测试 :
+                <ol>
+                    <form action="./api/v1/admin/deleteSchedule" method="post">
+                        <input class="form-control " type="text" name="accessToken" placeholder="accessToken"><br>
+                        <input class="form-control " type="text" name="ScheduleDate" placeholder="ScheduleDate"><br>
+                        <input type="submit" class="btn btn-primary" value="删除"/>
+                        <br/>
+                    </form>
+                </ol>
+            </li>
+            <hr>
+            <br/>
+        </div>
+
+        <!-===================================================================-->
+        <!- 人员信息修改API-------------------------------->
+        <!-===================================================================-->
+        <div class="tab-pane fade" id="dropdown5-4">
+            <li>URL : ./api/v1/admin/updateUserInfo</li>
+            <li>Method : POST</li>
+            <li>Param :
+                <ol>1.accessToken -----accessToken</ol>
+                <ol>1.information_ch -----送迎信息-中文</ol>
+                <ol>1.information_en -----送迎信息-英文</ol>
+                <ol>1.information_jp -----送迎信息-日文</ol>
+                <ol>1.joinFlag -----是否参加0：不参加，1参加</ol>
+                <ol>1.meal1Group -----宴会桌号</ol>
+            </li>
+            <li>Return 实例:
+                <ol>
+                    <table class="table table-striped list-row inform-list">
+                        <tr>
+                            <th>response status
+                            </th>
+                            <th>Json
+                            </th>
+                        </tr>
+                        <tr>
+                            <td>200
+                            </td>
+                            <td><br>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>上记以外
+                            </td>
+                            <td>服务器异常
+                            </td>
+                        </tr>
+                    </table>
+                </ol>
+
+            </li>
+            <li>实例测试 :
+                <ol>
+                    <form action="./api/v1/admin/updateUserInfo" method="post">
+
+                        <div class="container" style="white-space:nowrap">
+                            <div class="col-md-1">
+                                <p class="text-danger"><label style="height: 34px;margin-top: 5px;white-space:nowrap">Token：</label>
+                                </p>
+                            </div>
+                            <div class="col-md-9">
+                                <input class="form-control " type="text" name="accessToken"
+                                       placeholder="accessToken"><br>
+                            </div>
+                        </div>
+                        </br>
+                        <div class="container">
+                            <div class="col-md-1">
+                                <label style="height: 34px;margin-top: 5px;white-space:nowrap">userID：</label>
+                            </div>
+                            <div class="col-md-9">
+                                <input class="form-control " type="text" name="userID" placeholder="userID"><br>
+                            </div>
+                        </div>
+                        </br>
+                        <div class="container">
+                            <div class="col-md-1">
+                                <label style="height: 34px;margin-top: 5px">公司：</label>
+                            </div>
+                            <div class="col-md-3"><input class="form-control " type="text" name="company_en"
+                                                         placeholder="公司(英文)">
+                            </div>
+                            <div class="col-md-3"><input class="form-control " type="text" name="company_jp"
+                                                         placeholder="公司(日文)">
+                            </div>
+                            <div class="col-md-3"><input class="form-control " type="text" name="company_ch"
+                                                         placeholder="公司(中文)">
+                            </div>
+                        </div>
+                        </br>
+
+                        <div class="container">
+                            <div class="col-md-1">
+                                <label style="height: 34px;margin-top: 5px">组织：</label>
+                            </div>
+                            <div class="col-md-3"><input class="form-control " type="text" name="organize_en"
+                                                         placeholder="组织(英文)">
+                            </div>
+                            <div class="col-md-3"><input class="form-control " type="text" name="organize_jp"
+                                                         placeholder="组织(日文)">
+                            </div>
+                            <div class="col-md-3"><input class="form-control " type="text" name="organize_ch"
+                                                         placeholder="组织(中文)">
+                            </div>
+                        </div>
+                        </br>
+
+                        <div class="container">
+                            <div class="col-md-1">
+                                <label style="height: 34px;margin-top: 5px">本部：</label>
+                            </div>
+                            <div class="col-md-3"><input class="form-control " type="text" name="director_en"
+                                                         placeholder="本部(英文)">
+                            </div>
+                            <div class="col-md-3"><input class="form-control " type="text" name="director_jp"
+                                                         placeholder="本部(日文)">
+                            </div>
+                            <div class="col-md-3"><input class="form-control " type="text" name="director_ch"
+                                                         placeholder="本部(中文)">
+                            </div>
+                        </div>
+                        </br>
+
+                        <div class="container">
+                            <div class="col-md-1">
+                                <label style="height: 34px;margin-top: 5px">部门：</label>
+                            </div>
+                            <div class="col-md-3"><input class="form-control " type="text" name="department_en"
+                                                         placeholder="部门(英文)">
+                            </div>
+                            <div class="col-md-3"><input class="form-control " type="text" name="department_jp"
+                                                         placeholder="部门(日文)">
+                            </div>
+                            <div class="col-md-3"><input class="form-control " type="text" name="department_ch"
+                                                         placeholder="部门(中文)">
+                            </div>
+                        </div>
+                        </br>
+
+                        <div class="container">
+                            <div class="col-md-1">
+                                <label style="height: 34px;margin-top: 5px">职位：</label>
+                            </div>
+                            <div class="col-md-3"><input class="form-control " type="text" name="job_en"
+                                                         placeholder="职位(英文)">
+                            </div>
+                            <div class="col-md-3"><input class="form-control " type="text" name="job_jp"
+                                                         placeholder="职位(日文)">
+                            </div>
+                            <div class="col-md-3"><input class="form-control " type="text" name="job_ch"
+                                                         placeholder="职位(中文)">
+                            </div>
+                        </div>
+                        </br>
+
+                        <div class="container">
+                            <div class="col-md-1">
+                                <label style="height: 34px;margin-top: 5px">姓名：</label>
+                            </div>
+                            <div class="col-md-3"><input class="form-control " type="text" name="name_en"
+                                                         placeholder="姓名(英文)">
+                            </div>
+                            <div class="col-md-3"><input class="form-control " type="text" name="name_ch"
+                                                         placeholder="姓名(日文)">
+                            </div>
+                            <div class="col-md-3"><input class="form-control " type="text" name="name_jp"
+                                                         placeholder="姓名(中文)">
+                            </div>
+                        </div>
+                        </br>
+
+
+                        <div class="container">
+                            <div class="col-md-1">
+                                <label style="height: 34px;margin-top: 5px;white-space:nowrap">姓名(かな)：</label>
+                            </div>
+                            <div class="col-md-9">
+                                <input class="form-control " type="text" name="name_kana" placeholder="name_kana"><br>
+                            </div>
+                        </div>
+                        </br>
+                        <div class="container">
+                            <div class="col-md-1">
+                                <label style="height: 34px;margin-top: 5px;white-space:nowrap">姓名(pinyin)：</label>
+                            </div>
+                            <div class="col-md-9">
+                                <input class="form-control " type="text" name="name_pingyin" placeholder="name_pingyin"><br>
+                            </div>
+                        </div>
+                        </br>
+                        <div class="container">
+                            <div class="col-md-1">
+                                <label style="height: 34px;margin-top: 5px;white-space:nowrap">送迎信息：</label>
+                            </div>
+                            <div class="col-md-3">
+                                <input class="form-control " type="text" name="information_ch"
+                                       placeholder="送迎信息(英文)">
+                            </div>
+                            <div class="col-md-3"><input class="form-control " type="text" name="information_en"
+                                                         placeholder="送迎信息(日文)">
+                            </div>
+                            <div class="col-md-3"><input class="form-control " type="text" name="information_jp"
+                                                         placeholder="送迎信息(中文)">
+                            </div>
+                        </div>
+                        </br>
+
+
+                        <div class="container">
+                            <div class="col-md-1">
+                                <label style="height: 34px;margin-top: 5px;white-space:nowrap">是否为游客：</label>
+                            </div>
+                            <div class="col-md-9">
+                                <input class="form-control " type="text" name="IsTourist" placeholder="IsTourist"><br>
+                            </div>
+                        </div>
+                        </br>
+
+                        <div class="container">
+                            <div class="col-md-1">
+                                <label style="height: 34px;margin-top: 5px;white-space:nowrap">宴会桌号：</label>
+                            </div>
+                            <div class="col-md-9">
+                                <input class="form-control " type="text" name="meal1Group" placeholder="宴会桌号"><br>
+                            </div>
+                        </div>
+                        </br>
+
+                        <div class="container">
+                            <div class="col-md-1">
+                                <label style="height: 34px;margin-top: 5px;white-space:nowrap">邮箱：</label>
+                            </div>
+                            <div class="col-md-9">
+                                <input class="form-control " type="text" name="mailAddress" placeholder="邮箱"><br>
+                            </div>
+                        </div>
+                        </br>
+
+                        <div class="container">
+                            <div class="col-md-1">
+                                <label style="height: 34px;margin-top: 5px;white-space:nowrap">手机号码：</label>
+                            </div>
+                            <div class="col-md-9">
+                                <input class="form-control " type="text" name="telephone" placeholder="手机号码"><br>
+                            </div>
+                        </div>
+                        </br>
+                        <input type="submit" class="btn btn-primary" value="更新"/>
+                        <br/>
+                    </form>
+                </ol>
+            </li>
+            <hr>
+            <br/>
+        </div>
+
+        <!-===================================================================-->
+        <!- 人员信息删除API-------------------------------->
+        <!-===================================================================-->
+        <div class="tab-pane fade" id="dropdown5-5">
+            <li>URL : ./api/v1/admin/deleteUser</li>
+            <li>Method : POST</li>
+            <li>Param :
+                <ol>1.accessToken -----accessToken</ol>
+            </li>
+            <li>Return 实例:
+                <ol>
+                    <table class="table table-striped list-row inform-list">
+                        <tr>
+                            <th>response status
+                            </th>
+                            <th>Json
+                            </th>
+                        </tr>
+                        <tr>
+                            <td>200
+                            </td>
+                            <td><br>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>上记以外
+                            </td>
+                            <td>服务器异常
+                            </td>
+                        </tr>
+                    </table>
+                </ol>
+
+            </li>
+            <li>实例测试 :
+                <ol>
+                    <form action="./api/v1/admin/deleteUser" method="post">
+                        <input class="form-control " type="text" name="accessToken" placeholder="accessToken"><br>
+                        <input class="form-control " type="text" name="userID" placeholder="userID"><br>
+                        <input type="submit" class="btn btn-primary" value="删除"/>
+                        <br/>
+                    </form>
+                </ol>
+            </li>
+            <hr>
+            <br/>
+        </div>
+
+        <!-===================================================================-->
+        <!- 信息导入API-------------------------------->
+        <!-===================================================================-->
+        <div class="tab-pane fade" id="dropdown5-6">
+            <li>URL : ./api/v1/admin/ImportUserInfo</li>
+            <li>Method : POST</li>
+            <li>Param :
+                <ol>1.accessToken -----accessToken</ol>
+            </li>
+            <li>Return 实例:
+                <ol>
+                    <table class="table table-striped list-row inform-list">
+                        <tr>
+                            <th>response status
+                            </th>
+                            <th>Json
+                            </th>
+                        </tr>
+                        <tr>
+                            <td>200
+                            </td>
+                            <td><br>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>上记以外
+                            </td>
+                            <td>服务器异常
+                            </td>
+                        </tr>
+                    </table>
+                </ol>
+
+            </li>
+            <li>实例测试 :
+                <ol>
+                    <form action="./api/v1/admin/ImportUserInfo" method="post">
+                        <input class="form-control " type="text" name="accessToken" placeholder="accessToken"><br>
+                        <input class="form-control " type="text" name="fileName" placeholder="fileName"><br>
+                        <input type="submit" class="btn btn-primary" value="导入"/>
+                        <br/>
+                    </form>
+                </ol>
+            </li>
+            <hr>
+            <br/>
+        </div>
+        <!-===================================================================-->
+        <!- 照片上传后后台更新API-------------------------------->
+        <!-===================================================================-->
+        <div class="tab-pane fade" id="dropdown5-7">
+            <li>URL : ./api/v1/admin/postImageName</li>
+            <li>Method : POST</li>
+            <li>Param :
+                <ol>1.accessToken -----accessToken</ol>
+                <ol>1.data -----data</ol>
+            </li>
+            <li>Return 实例:
+                <ol>
+                    <table class="table table-striped list-row inform-list">
+                        <tr>
+                            <th>response status
+                            </th>
+                            <th>Json
+                            </th>
+                        </tr>
+                        <tr>
+                            <td>200
+                            </td>
+                            <td><br>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>上记以外
+                            </td>
+                            <td>服务器异常
+                            </td>
+                        </tr>
+                    </table>
+                </ol>
+
+            </li>
+            <li>实例测试 :
+                <ol>
+                    <form action="./api/v1/admin/postImageName" method="post">
+                        <input class="form-control " type="text" name="accessToken" placeholder="accessToken"><br>
+                        <input class="form-control " type="text" name="data" placeholder="data"><br>
+                        <input type="submit" class="btn btn-primary" value="导入"/>
+                        <br/>
+                    </form>
+                </ol>
+            </li>
+            <hr>
+            <br/>
+        </div>
+        <!-===================================================================-->
+        <!- AdminLogin-------------------------------->
+        <!-===================================================================-->
+        <div class="tab-pane fade" id="dropdown5-8">
+            <li>URL : ./api/v1/admin/AdminLogin</li>
+            <li>Method : POST</li>
+            <li>Param :
+                <ol>1.accessToken -----accessToken</ol>
+            </li>
+            <li>Return 实例:
+                <ol>
+                    <table class="table table-striped list-row inform-list">
+                        <tr>
+                            <th>response status
+                            </th>
+                            <th>Json
+                            </th>
+                        </tr>
+                        <tr>
+                            <td>200
+                            </td>
+                            <td><br>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>上记以外
+                            </td>
+                            <td>服务器异常
+                            </td>
+                        </tr>
+                    </table>
+                </ol>
+
+            </li>
+            <li>实例测试 :
+                <ol>
+                    <form action="./api/v1/admin/AdminLogin" method="post">
+                        <input class="form-control " type="text" name="userName" placeholder="userName"><br>
+                        <input class="form-control " type="text" name="password" placeholder="password"><br>
+                        <input type="submit" class="btn btn-primary" value="登录"/>
+                        <br/>
+                    </form>
+                </ol>
+            </li>
+            <li>注册管理员 :
+                <ol>
+                    <form action="./api/v1/admin/registFromPlat" method="post">
+                        <input class="form-control " type="text" name="userName" placeholder="userName"><br>
+                        <input class="form-control " type="text" name="password" placeholder="password"><br>
+
+                        <p class="text-danger">//角色(0:管理员,1:超级管理员)</p>
+                        <input class="form-control " type="text" name="roles" placeholder="roles"><br>
+                        <input type="submit" class="btn btn-primary" value="注册"/>
+                        <br/>
+                    </form>
+                </ol>
+            </li>
+            <hr>
+            <br/>
+        </div>
+        <!-===================================================================-->
+        <!- 初始化环境API-------------------------------->
+        <!-===================================================================-->
+        <div class="tab-pane fade" id="dropdown5-9">
+            <li>URL : ./api/v1/admin/reset</li>
+            <li>Method : POST</li>
+            <li>Param :
+                <ol>1.accessToken -----accessToken</ol>
+            </li>
+            <li>Return 实例:
+                <ol>
+                    <table class="table table-striped list-row inform-list">
+                        <tr>
+                            <th>response status
+                            </th>
+                            <th>Json
+                            </th>
+                        </tr>
+                        <tr>
+                            <td>200
+                            </td>
+                            <td><br>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>上记以外
+                            </td>
+                            <td>服务器异常
+                            </td>
+                        </tr>
+                    </table>
+                </ol>
+
+            </li>
+            <li>实例测试 :
+                <ol>
+                    <form action="./api/v1/admin/reset" method="post">
+                        <label class="checkbox-inline">
+                            <input  type="checkbox" name="chat" value="1" checked=true aria-label="chat">初始化群组  注：此操作会把群组ID换掉
+                        </label></br>
+                        <label class="checkbox-inline">
+                            <input type="checkbox" name="chatInfo" value="1" checked=true aria-label="chatInfo">chatInfo
+                        </label></br>
+                        <label class="checkbox-inline">
+                            <input type="checkbox" name="groupInfo" value="1" checked=true aria-label="groupInfo">groupInfo
+                        </label></br>
+                        <label class="checkbox-inline">
+                            <input type="checkbox" name="user" value="1" checked=true aria-label="user">user
+                        </label></br>
+                        <label class="checkbox-inline">
+                            <input type="checkbox" name="pushInfo" value="1" checked=true aria-label="pushInfo">pushInfo
+                        </label></br>
+                        <label class="checkbox-inline">
+                            <input type="checkbox" name="schedule" value="1" checked=true aria-label="schedule">schedule
+                        </label></br>
+                        <label class="checkbox-inline">
+                            <input type="checkbox" name="HistoryInfo" value="1" checked=true aria-label="HistoryInfo">HistoryInfo
+                        </label></br>
+                        <label class="checkbox-inline">
+                            <input type="checkbox" name="HistoryDetailInfo" value="1" checked=true
+                                   aria-label="HistoryDetailInfo">HistoryDetailInfo
+                        </label></br>
+                        <label class="checkbox-inline">
+                            <input type="checkbox" name="MapInfo" value="1" checked=true aria-label="MapInfo">MapInfo
+                        </label></br>
+                        <input class="form-control " type="text" name="accessToken" placeholder="accessToken"><br>
+                        <input type="submit" class="btn btn-primary" value="初始化"/>
+                        <br/>
+                    </form>
+                </ol>
+            </li>
+            <hr>
+            <br/>
+        </div>
+        <!-===================================================================-->
+        <!- 重置个人信息API-------------------------------->
+        <!-===================================================================-->
+        <div class="tab-pane fade" id="dropdown5-10">
+            <li>URL : ./api/v1/admin/restInfo</li>
+            <li>Method : POST</li>
+            <li>Param :
+                <ol>1.accessToken -----accessToken</ol>
+                <ol>1.isEmailAvaliable -----是否启用后缀 1:启动 0:不启用</ol>
+                <ol>1.password -----口令</ol>
+            </li>
+            <li>Return 实例:
+                <ol>
+                    <table class="table table-striped list-row inform-list">
+                        <tr>
+                            <th>response status
+                            </th>
+                            <th>Json
+                            </th>
+                        </tr>
+                        <tr>
+                            <td>200
+                            </td>
+                            <td><br>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>上记以外
+                            </td>
+                            <td>服务器异常
+                            </td>
+                        </tr>
+                    </table>
+                </ol>
+
+            </li>
+            <li>实例测试 :
+                <ol>
+                    <form action="./api/v1/admin/restInfo" method="post">
+                        <input class="form-control " type="text" name="accessToken" placeholder="accessToken"><br>
+                        <input class="form-control " type="text" name="password" placeholder="password"><br>
+                        <input class="form-control " type="text" name="isEmailAvaliable" placeholder="isEmailAvaliable"><br>
+                        <input type="submit" class="btn btn-primary" value="重置"/>
+                        <br/>
+                    </form>
+                </ol>
+            </li>
+            <hr>
+            <br/>
+        </div>
+        <!-===================================================================-->
+        <!- OSS授权-------------------------------->
+        <!-===================================================================-->
+        <div class="tab-pane fade" id="dropdown5-11">
+            <li>URL : ./api/v1/user/oss</li>
+            <li>Method : POST</li>
+            <li>Param :
+                <ol>1.accessToken -----accessToken</ol>
+            </li>
+            <li>Return 实例:
+                <ol>
+                    <table class="table table-striped list-row inform-list">
+                        <tr>
+                            <th>response status
+                            </th>
+                            <th>Json
+                            </th>
+                        </tr>
+                        <tr>
+                            <td>200
+                            </td>
+                            <td><br>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>上记以外
+                            </td>
+                            <td>服务器异常
+                            </td>
+                        </tr>
+                    </table>
+                </ol>
+
+            </li>
+            <li>实例测试 :
+                <ol>
+                    <form action="./api/v1/user/oss" method="POST">
+                        <input class="form-control " type="text" name="accessToken" placeholder="accessToken"><br>
+                        <input type="submit" class="btn btn-primary" value="oss"/>
+                        <br/>
+                    </form>
+                </ol>
+            </li>
+            <hr>
+            <br/>
+        </div>
+        <!-===================================================================-->
+        <!- 上传文件-------------------------------->
+        <!-===================================================================-->
+        <div class="tab-pane fade" id="dropdown5-12">
+            <li>URL : ./api/v1/admin/uploadFile</li>
+            <li>Method : POST</li>
+            <li>Param :
+                <ol>1.imageName -----imageName（必须）</ol>
+            </li>
+            <li>Return 实例:
+                <ol>
+                    <table class="table table-striped list-row inform-list">
+                        <tr>
+                            <th>response status
+                            </th>
+                            <th>Json
+                            </th>
+                        </tr>
+                        <tr>
+                            <td>200
+                            </td>
+                            <td>{<br>
+                                code:0 <br>
+                                }<br>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>上记以外
+                            </td>
+                            <td>服务器异常
+                            </td>
+                        </tr>
+                    </table>
+                </ol>
+
+            </li>
+            <li>实例测试 :
+                <ol>
+                    <form action="./api/v1/admin/uploadFile" enctype="multipart/form-data" method="post">
+                        <br>
+                        <input type="file" name="upload"><br>
+                        <input type="submit" class="btn btn-primary" value="上传"/>
+                        <br/>
+                    </form>
+                </ol>
+            </li>
+            <br/>
+            <hr>
+            <br/>
+        </div>
+
+        <!-===================================================================-->
+        <!- 精彩瞬间和长春介绍-------------------------------->
+        <!-===================================================================-->
+        <div class="tab-pane fade" id="dropdown6-1">
+            <li>URL : ./api/v1/user/getMarvellousHistoryList</li>
+            <li>Method : GET</li>
+            <li>Param :
+                <ol>1.accessToken -----accessToken（必须）</ol>
+                <ol>2.language -----language（必须）</ol>
+            </li>
+            <li>Return 实例:
+                <ol>
+                    <table class="table table-striped list-row inform-list">
+                        <tr>
+                            <th>response status
+                            </th>
+                            <th>Json
+                            </th>
+                        </tr>
+                        <tr>
+                            <td>200
+                            </td>
+                            <td>{<br>
+                                code:0 <br>
+                                }<br>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>上记以外
+                            </td>
+                            <td>服务器异常
+                            </td>
+                        </tr>
+                    </table>
+                </ol>
+
+            </li>
+            <li>实例测试 :
+                <ol>
+                    <form action="./api/v1/user/getMarvellousHistoryList" method="get">
+                        <input class="form-control " type="text" name="accessToken" placeholder="accessToken"><br>
+                        <input type="submit" class="btn btn-primary" value="获取"/>
+                        <br/>
+                    </form>
+                </ol>
+            </li>
+            <br/>
+            <hr>
+            <br/>
+        </div>
+        <!-===================================================================-->
+        <!- 精彩瞬间和长春介绍-------------------------------->
+        <!-===================================================================-->
+        <div class="tab-pane fade" id="dropdown6-2">
+            <li>URL : ./api/v1/user/getMarvellousHistoryDetailList</li>
+            <li>Method : GET</li>
+            <li>Param :
+                <ol>1.accessToken -----accessToken（必须）</ol>
+                <ol>2.historyID -----historyID（必须）</ol>
+                <ol>3.language -----language（必须）</ol>
+            </li>
+            <li>Return 实例:
+                <ol>
+                    <table class="table table-striped list-row inform-list">
+                        <tr>
+                            <th>response status
+                            </th>
+                            <th>Json
+                            </th>
+                        </tr>
+                        <tr>
+                            <td>200
+                            </td>
+                            <td>{<br>
+                                code:0 <br>
+                                }<br>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>上记以外
+                            </td>
+                            <td>服务器异常
+                            </td>
+                        </tr>
+                    </table>
+                </ol>
+
+            </li>
+            <li>实例测试 :
+                <ol>
+                    <form action="./api/v1/user/getMarvellousHistoryDetailList" method="get">
+                        <input class="form-control " type="text" name="accessToken" placeholder="accessToken"><br>
+                        <input class="form-control " type="text" name="historyID" placeholder="historyID"><br>
+                        <input type="submit" class="btn btn-primary" value="获取"/>
+                        <br/>
+                    </form>
+                </ol>
+            </li>
+            <br/>
+            <hr>
+            <br/>
+        </div>
+
+
+        <!-===================================================================-->
+        <!- 精彩瞬间和长春介绍-------------------------------->
+        <!-===================================================================-->
+        <div class="tab-pane fade" id="dropdown6-4">
+            <li>URL : ./api/v1/user/getMarvellous</li>
+            <li>Method : GET</li>
+            <li>Param :
+                <ol>1.accessToken -----accessToken（必须）</ol>
+                <ol>3.language -----language（必须）</ol>
+            </li>
+            <li>Return 实例:
+                <ol>
+                    <table class="table table-striped list-row inform-list">
+                        <tr>
+                            <th>response status
+                            </th>
+                            <th>Json
+                            </th>
+                        </tr>
+                        <tr>
+                            <td>200
+                            </td>
+                            <td>{<br>
+                                code:0 <br>
+                                }<br>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>上记以外
+                            </td>
+                            <td>服务器异常
+                            </td>
+                        </tr>
+                    </table>
+                </ol>
+
+            </li>
+            <li>实例测试 :
+                <ol>
+                    <form action="./api/v1/user/getMarvellous" method="get">
+                        <input class="form-control " type="text" name="accessToken" placeholder="accessToken"><br>
+                        <input type="submit" class="btn btn-primary" value="获取"/>
+                        <br/>
+                    </form>
+                </ol>
+            </li>
+            <br/>
+            <hr>
+            <br/>
+        </div>
+
+
+        <!-===================================================================-->
+        <!- 追加精彩瞬间和长春介绍数据-------------------------------->
+        <!-===================================================================-->
+        <div class="tab-pane fade" id="dropdown6-3">
+            <li>URL : ./api/v1/user/addMarvellousHistory</li>
+            <li>Method : post</li>
+            <li>Param :
+                <ol>1.accessToken -----accessToken（必须）</ol>
+                <ol>1.historyID -----historyID（必须）</ol>
+            </li>
+            <li>Return 实例:
+                <ol>
+                    <table class="table table-striped list-row inform-list">
+                        <tr>
+                            <th>response status
+                            </th>
+                            <th>Json
+                            </th>
+                        </tr>
+                        <tr>
+                            <td>200
+                            </td>
+                            <td>{<br>
+                                code:0 <br>
+                                }<br>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>上记以外
+                            </td>
+                            <td>服务器异常
+                            </td>
+                        </tr>
+                    </table>
+                </ol>
+
+            </li>
+            <li>实例测试 :
+                <ol>
+                    <form action="./api/v1/user/addMarvellousHistory" method="post">
+                        <input class="form-control " type="text" name="historyDetailId"
+                               placeholder="historyDetailId"><br>
+                        <input class="form-control " type="text" name="showIndex" placeholder="showIndex"><br>
+
+                        <div class="container">
+
+                            <div class="col-md-9"><textarea class="form-control " name="introduce_en"
+                                                            placeholder="精彩介绍(英文)"></textarea><br>
+                            </div>
+                            <br>
+
+                            <div class="col-md-9"><textarea class="form-control" name="introduce_jp"
+                                                            placeholder="精彩介绍(日文)"></textarea><br>
+                            </div>
+                            <br>
+
+                            <div class="col-md-9"><textarea class="form-control " name="introduce_ch"
+                                                            placeholder="精彩介绍(中文)"></textarea><br>
+                            </div>
+
+                        </div>
+                        </br>
+
+                        <input class="form-control " type="text" name="picName" placeholder="picName"><br>
+                        <input class="form-control " type="text" name="category_en" placeholder="category_en"><br>
+                        <input class="form-control " type="text" name="category_jp" placeholder="category_jp"><br>
+                        <input class="form-control " type="text" name="category_ch" placeholder="category_ch"><br>
+                        <input class="form-control " type="text" name="LitCategory_en" placeholder="LitCategory_en"><br>
+                        <input class="form-control " type="text" name="LitCategory_jp" placeholder="LitCategory_jp"><br>
+                        <input class="form-control " type="text" name="LitCategory_ch" placeholder="LitCategory_ch"><br>
+
+                        <!--<p class="text-danger">[{"showIndex":"","category":"","LitCategory":"","introduce_en":"","introduce_jp":"","introduce_ch":"","picName":""}]</p>-->
+                        <!--<input class="form-control " type="text" name="detailData" placeholder="detailData"><br>-->
+                        <input type="submit" class="btn btn-primary" value="追加"/>
+                        <br/>
+                    </form>
+                </ol>
+            </li>
+            <br/>
+            <hr>
+            <br/>
+        </div>
+
+        <!-===================================================================-->
+        <!- 我要去-------------------------------->
+        <!-===================================================================-->
+        <div class="tab-pane fade" id="dropdown6-5">
+            <li>URL : ./api/v1/user/getDestination</li>
+            <li>Method : GET</li>
+            <li>Param :
+                <ol>1.accessToken -----accessToken（必须）</ol>
+                <ol>3.language -----language（必须）</ol>
+            </li>
+            <li>Return 实例:
+                <ol>
+                    <table class="table table-striped list-row inform-list">
+                        <tr>
+                            <th>response status
+                            </th>
+                            <th>Json
+                            </th>
+                        </tr>
+                        <tr>
+                            <td>200
+                            </td>
+                            <td>{<br>
+                                code:0 <br>
+                                }<br>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>上记以外
+                            </td>
+                            <td>服务器异常
+                            </td>
+                        </tr>
+                    </table>
+                </ol>
+
+            </li>
+            <li>实例测试 :
+                <ol>
+                    <form action="./api/v1/user/getDestination" method="get">
+                        <input class="form-control " type="text" name="accessToken" placeholder="accessToken"><br>
+                        <input type="submit" class="btn btn-primary" value="获取"/>
+                        <br/>
+                    </form>
+                </ol>
+            </li>
+            <br/>
+            <hr>
+            <br/>
+        </div>
+
+
+        <!-===================================================================-->
+        <!- 我要去-------------------------------->
+        <!-===================================================================-->
+        <div class="tab-pane fade" id="dropdown6-6">
+            <li>URL : ./api/v1/user/addDestination</li>
+            <li>Method : GET</li>
+            <li>Param :
+                <ol>1.accessToken -----accessToken（必须）</ol>
+                <ol>3.language -----language（必须）</ol>
+            </li>
+            <li>Return 实例:
+                <ol>
+                    <table class="table table-striped list-row inform-list">
+                        <tr>
+                            <th>response status
+                            </th>
+                            <th>Json
+                            </th>
+                        </tr>
+                        <tr>
+                            <td>200
+                            </td>
+                            <td>{<br>
+                                code:0 <br>
+                                }<br>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>上记以外
+                            </td>
+                            <td>服务器异常
+                            </td>
+                        </tr>
+                    </table>
+                </ol>
+
+            </li>
+            <li>实例测试 :
+                <ol>
+                    <form action="./api/v1/user/addDestination" method="post">
+                        <input class="form-control " type="text" name="mapInfoID" placeholder="mapInfoID"><br>
+                        <input class="form-control " type="text" name="index" placeholder="index"><br>
+                        <input class="form-control " type="text" name="DestinationName_en"
+                               placeholder="DestinationName_en"><br>
+                        <input class="form-control " type="text" name="DestinationName_jp"
+                               placeholder="DestinationName_jp"><br>
+                        <input class="form-control " type="text" name="DestinationName_ch"
+                               placeholder="DestinationName_ch"><br>
+                        <input class="form-control " type="text" name="DestinationAddress_en"
+                               placeholder="DestinationAddress_en"><br>
+                        <input class="form-control " type="text" name="DestinationAddress_jp"
+                               placeholder="DestinationAddress_jp"><br>
+                        <input class="form-control " type="text" name="DestinationAddress_ch"
+                               placeholder="DestinationAddress_ch"><br>
+                        <input class="form-control " type="text" name="baidu_latitude" placeholder="baidu_latitude"><br>
+                        <input class="form-control " type="text" name="baidu_longitude"
+                               placeholder="baidu_longitude"><br>
+                        <input class="form-control " type="text" name="gaode_latitude" placeholder="gaode_latitude"><br>
+                        <input class="form-control " type="text" name="gaode_longitude"
+                               placeholder="gaode_longitude"><br>
+                        <input type="submit" class="btn btn-primary" value="追加"/>
+                        <br/>
+                    </form>
+                </ol>
+            </li>
+            <br/>
+            <hr>
+            <br/>
+        </div>
+
+        <!-===================================================================-->
+        <!- 获取人员一览API 后台-------------------------------->
+        <!-===================================================================-->
+        <div class="tab-pane fade" id="dropdown5-13">
+            <li>URL : ./api/v1/user/getUsersInfo</li>
+            <li>Method : GET</li>
+            <li>Param :
+                <ol>1.accessToken -----accessToken</ol>
+                <ol>2.ver -----版本号</ol>
+            </li>
+            <li>Return 实例:
+                <ol>
+                    <table class="table table-striped list-row inform-list">
+                        <tr>
+                            <th>response status
+                            </th>
+                            <th>Json
+                            </th>
+                        </tr>
+                        <tr>
+                            <td>200
+                            </td>
+                            <td><br>
+                                <br>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>上记以外
+                            </td>
+                            <td>服务器异常
+                            </td>
+                        </tr>
+                    </table>
+                </ol>
+
+            </li>
+            <li>实例测试 :
+                <ol>
+                    <form action="./api/v1/user/getUsersInfo" method="GET">
+                        <input class="form-control " type="text" name="accessToken" placeholder="accessToken"><br>
+                        <input class="form-control " type="text" name="ver" placeholder="ver"><br>
+                        <input type="submit" class="btn btn-primary" value="获取员工列表"/>
+                        <br/>
+                    </form>
+                </ol>
+            </li>
+            <hr>
+            <br/>
+        </div>
+    </div>
+
+
+    <div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">Modal Heading</h4>
+                </div>
+                <div class="modal-body">
+                    <h4>Text in a modal</h4>
+
+                    <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula.</p>
+
+                    <h4>Popover in a modal</h4>
+
+                    <p>This <a href="#" role="button" class="btn btn-default js-popover" title="A Title"
+                               data-content="And here's some amazing content. It's very engaging. right?"
+                               data-placement="left">button</a> should trigger a popover on click.</p>
+
+                    <h4>Tooltips in a modal</h4>
+
+                    <p><a href="#" class="js-tooltip" title="Tooltip">This link</a> and <a href="#" class="js-tooltip"
+                                                                                           title="Tooltip">that link</a>
+                        should have tooltips on hover.</p>
+
+                    <hr>
+
+                    <h4>Overflowing text to show scroll behavior</h4>
+
+                    <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque
+                        nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- JavaScript Includes -->
+
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script src="http://train.nttdata-it.com/train2/javascripts/transition.js"></script>
+<script src="http://train.nttdata-it.com/train2/javascripts/tab.js"></script>
+<script src="http://train.nttdata-it.com/train2/javascripts/dropdown.js"></script>
+<script src="http://train.nttdata-it.com/train2/javascripts/modal.js"></script>
+<script src="http://train.nttdata-it.com/train2/javascripts/tooltip.js"></script>
+<script src="http://train.nttdata-it.com/train2/javascripts/popover.js"></script>
+<script src="http://train.nttdata-it.com/train2/javascripts/collapse.js"></script>
+
+
+<!--<script src="/javascripts/jquery-1.7.2.min.js"></script>-->
+<!--<script src="/javascripts/transition.js"></script>-->
+<!--<script src="/javascripts/tab.js"></script>-->
+<!--<script src="/javascripts/modal.js"></script>-->
+<!--<script src="/javascripts/tooltip.js"></script>-->
+<!--<script src="/javascripts/popover.js"></script>-->
+<!--<script src="/javascripts/collapse.js"></script>-->
+
+<!--<script src="/javascripts/dropdown.js"></script>-->
+
+</body>
+</html>

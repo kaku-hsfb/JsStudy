@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="http://libs.baidu.com/jquery/2.0.0/jquery.js"></script>
+</head>
+<body>
+<input id="testText1" type="text" name="" value="" placeholder="">
+<input id="testText2" type="text" name="" value="" placeholder="">
+<button type="button" onclick="funSave()">保存</button>
+	<script type="text/javascript">
+		function funSave() {
+			var id = $('#testText1')[0].value;
+			var name = $('#testText2')[0].value;
+			var str = '{mydata:[' + '{id:' + id + ',name:' + name + '}' + ']}';
+
+			str = "{MyData:[{id:'" + id + "',name:'" + name + "'}]}";
+			console.log(str);
+//var json = eval('(' + str + ')');
+
+var fso, tf;
+try{
+	fso = new ActiveXObject("Scripting.FileSystemObject");
+	console.log(fso);
+	tf = fso.CreateTextFile("F:\\JSONTEST\\DB_USER.json", true);
+	console.log(tf);
+	tf.WriteLine(str);
+}catch(err){
+
+
+}finally{
+	tf.Close();
+}
+}
+
+function funSearch() {
+	var fso, ts, s;
+	var ForReading = 1;
+	try{
+		fso = new ActiveXObject("Scripting.FileSystemObject");
+		ts = fso.OpenTextFile("F:\\JSONTEST\\DB_USER.json", ForReading);
+		s = ts.ReadLine();
+		var json = eval('(' + s + ')');
+		alert(json.MyData[0].id);
+	}catch(err){
+
+
+	}finally{
+		ts.Close();
+	}
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>js排序</title>
+	<script type="text/javascript">
+		function cc(){
+			function mySorter(o1, o2){
+				const a=o1.userID;
+				const b = o2.userID;
+			    if (/^\d/.test(a) ^ /^\D/.test(b)) return a>b?1:(a==b?0:-1);
+			    return a>b?(a==b?0:1):-1;
+			}
+			// var pyArray=["a","d","fa","5","t","fw2","a31","b","e","2fs","4","0"]
+			var aa = [
+				{userID:'a'},
+				{userID:'d'},
+				{userID:'fa'},
+				{userID:'5'},
+				{userID:'t'},
+				{userID:'fw2'},
+				{userID:'a31'},
+				{userID:'b'},
+				{userID:'e'},
+				{userID:'2fs'},
+				{userID:'4'},
+				{userID:'0'},
+			]
+			// console.log(pyArray.sort(mySorter))
+			console.log(aa.sort(mySorter))
+		}
+	</script>
+</head>
+<body>
+	<button type="button" onclick="cc();">点击</button>
+</body>
+</html>
